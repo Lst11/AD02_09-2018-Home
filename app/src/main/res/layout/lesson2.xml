@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_brick_white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/CountryName"
+             android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/flags" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:id="@+id/country"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="Austria" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/red"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/white" />
+
+                </FrameLayout>
+
+
+                <TextView
+                    android:id="@+id/country2"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Poland" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/red"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/white" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/country3"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Italy" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/red"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@color/green_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@color/white" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/country4"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Colombia" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/red_dark"
+                    android:orientation="vertical"
+                    android:weightSum="6">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@color/yellow_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@color/blue_dark" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/country5"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Madagascar" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="133dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/red" />
+
+                        <TextView
+                            android:id="@+id/Color2Madagascar"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/green_dark" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/country6"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Thailand" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/red_dark">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="67dp"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@color/blue_dark" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@color/white" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+
+                <TextView
+                    android:id="@+id/country7"
+                    style="@style/CountryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Denmark" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/input_height_of_flags_ls2"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:background="@color/red_dark" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight="1"
+                        android:background="@color/red_dark" />
+
+                    <TextView
+                        android:layout_width="124dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight="1"
+                        android:background="@color/red_dark" />
+
+                    <TextView
+                        android:layout_width="124dp"
+                        android:layout_height="43dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_weight="1"
+                        android:background="@color/red_dark" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</FrameLayout>
