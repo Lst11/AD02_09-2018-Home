@@ -27,6 +27,15 @@
             android:layout_weight="1"
             android:background="@color/gray"
             android:text="Lesson 2" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_height_of_the_button_menu"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:text="Lesson 3" />
     </TableRow>
 </TableLayout>
 

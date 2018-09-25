@@ -1,4 +1,4 @@
-package by.it_academy.ad02_09_2018_home;
+package by.it_academy.ad02_09_2018_home.hw1;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import by.it_academy.ad02_09_2018_home.R;
+
 public class Lesson1Activity extends Activity implements View.OnClickListener {
     private Button button;
     private TextView string1;
@@ -17,7 +19,7 @@ public class Lesson1Activity extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lesson1);
+        setContentView(R.layout.activity_lesson1);
 
         button = (Button) findViewById(R.id.button);
         string1 = (TextView) findViewById(R.id.textView1);

@@ -3,4 +3,8 @@
     <string name="string1">First string</string>
     <string name="string2">Second string</string>
     <string name="flags">Flags of countries</string>
+    <string name="upload_image">Enter the link to upload the image and click the button</string>
+    <string name="empty_string_error">The string is empty</string>
+    <string name="example_upload_image">http://example.com/Image.png</string>
+
 </resources>

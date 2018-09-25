@@ -8,13 +8,14 @@
     <color name="colorButton">#5967ff</color>
     <color name="white">#f9f9f9</color>
     <color name="black">#000000</color>
-    <color name="gray">#aeadad</color>
+    <color name="gray">#9f9e9e</color>
     <color name="red">#f91115</color>
     <color name="green_dark">#3c813e</color>
     <color name="yellow_dark">#e1bc00</color>
     <color name="red_dark">#9b0a11</color>
     <color name="blue_dark">#1135ac</color>
-
-
+    <color name="gray_dark">#3f3f3f</color>
+    <color name="white_transparent">#64f9f9f9</color>
+    <color name="gray_transparent">#64343434</color>
 
 </resources>

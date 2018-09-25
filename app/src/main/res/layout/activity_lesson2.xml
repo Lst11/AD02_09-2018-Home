@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/textView"
-            style="@style/CountryName"
+            style="@style/text_title"
              android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -38,7 +38,7 @@
 
                 <TextView
                     android:id="@+id/country"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:text="Austria" />
@@ -60,7 +60,7 @@
 
                 <TextView
                     android:id="@+id/country2"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -84,7 +84,7 @@
 
                 <TextView
                     android:id="@+id/country3"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -114,7 +114,7 @@
 
                 <TextView
                     android:id="@+id/country4"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -142,7 +142,7 @@
 
                 <TextView
                     android:id="@+id/country5"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -178,7 +178,7 @@
 
                 <TextView
                     android:id="@+id/country6"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -221,7 +221,7 @@
 
                 <TextView
                     android:id="@+id/country7"
-                    style="@style/CountryName"
+                    style="@style/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
@@ -262,7 +262,6 @@
 
 
                 </RelativeLayout>
-
 
             </LinearLayout>
 
