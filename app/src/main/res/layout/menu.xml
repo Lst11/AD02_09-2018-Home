@@ -28,6 +28,14 @@
             android:background="@color/gray"
             android:text="Lesson 2" />
 
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
@@ -36,6 +44,16 @@
             android:layout_weight="1"
             android:background="@color/gray"
             android:text="Lesson 3" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_height_of_the_button_menu"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@color/gray"
+            android:text="Lesson 4" />
+
     </TableRow>
 </TableLayout>
 

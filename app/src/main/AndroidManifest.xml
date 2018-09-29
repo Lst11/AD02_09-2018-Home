@@ -27,5 +27,7 @@
 
         <activity android:name=".hw3.Lesson3Activity" />
 
+        <activity android:name=".hw4.Lesson4Activity" />
+
     </application>
 </manifest>

@@ -6,5 +6,8 @@
     <string name="upload_image">Enter the link to upload the image and click the button</string>
     <string name="empty_string_error">The string is empty</string>
     <string name="example_upload_image">http://example.com/Image.png</string>
+    <string name="input_error">Input error!</string>
+    <string name="diagram_array_error">The array must contain less than 5 values!</string>
+
 
 </resources>
