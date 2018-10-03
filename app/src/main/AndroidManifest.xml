@@ -1,7 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="by.it_academy.ad02_09_2018_home">
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -28,6 +32,12 @@
         <activity android:name=".hw3.Lesson3Activity" />
 
         <activity android:name=".hw4.Lesson4Activity" />
+
+        <activity android:name=".hw5.Lesson5Activity" />
+
+        <activity android:name=".hw6.Lesson6Activity" />
+
+        <service android:name=".hw6.CustromService" />
 
     </application>
 </manifest>
