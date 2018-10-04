@@ -1,73 +1,90 @@
 package by.it_academy.ad02_09_2018_home.hw6
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
+import android.content.*
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.IBinder
+import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Button
+import android.widget.TextView
 import by.it_academy.ad02_09_2018_home.R
+import by.it_academy.ad02_09_2018_home.hw6.CustromService.LocalBinder
 
 
 class Lesson6Activity : AppCompatActivity() {
-    lateinit var sConn: ServiceConnection
-    var bound = false
+    var mService: CustromService? = null
+    var isBound = false
+    private val sConn: ServiceConnection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, binder: IBinder) {
+            val localBinder: LocalBinder = binder as LocalBinder
+            mService = localBinder.getService()
+            isBound = true
+            Log.d("AAA", "onServiceConnected")
+        }
+
+        override fun onServiceDisconnected(className: ComponentName) {
+            Log.d("AAA", "onServiceDisconnected")
+            isBound = false
+        }
+    }
+
+    lateinit var localBroadcastManager: LocalBroadcastManager
+    var wifiStatusTextView: TextView? = null
+
+    val listener: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action.equals("NETWORK_AVAILABLE_YES")) {
+                changeWifiStatus("Press to turt off the wifi")
+                Log.d("AAA", "Status changed to: YES")
+            } else {
+                changeWifiStatus("Press to turt on the wifi")
+                Log.d("AAA", "Status changed to: NO")
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lesson6)
+        wifiStatusTextView = findViewById<TextView>(R.id.changeWifiStatus)
 
-        val buttonOn = findViewById<Button>(R.id.wifiOn)
-        val buttonOff = findViewById<Button>(R.id.wifiOff)
+        localBroadcastManager = LocalBroadcastManager.getInstance(this)
 
-        val wifiManager: WifiManager = getApplicationContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
-//        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE); wifi.setWifiEnabled(false);
-
-        buttonOn.setOnClickListener(object : View.OnClickListener {
+        wifiStatusTextView?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                wifiManager.isWifiEnabled = true
+                val wifiManager: WifiManager = getApplicationContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
+                mService?.changeWifiStatus(wifiManager)
+                Log.d("AAA", "onClick changeWifiStatus")
             }
         })
-
-        buttonOff.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View) {
-                wifiManager.isWifiEnabled = false
-            }
-        })
-
 
     }
 
     override fun onResume() {
         super.onResume()
         var intent: Intent = object : Intent(this, CustromService::class.java) {}
-        sConn = object : ServiceConnection {
-            override fun onServiceConnected(className: ComponentName, binder: IBinder) {
-                Log.d("AAA", "onServiceConnected")
-                bound = true
-            }
-
-            override fun onServiceDisconnected(className: ComponentName) {
-                Log.d("AAA", "onServiceDisconnected")
-                bound = false
-            }
-        }
         bindService(intent, sConn, BIND_AUTO_CREATE)
-//        startService(Intent(this, CustromService::class.java))
+
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("NETWORK_AVAILABLE_YES")
+        intentFilter.addAction("NETWORK_AVAILABLE_NO")
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(listener,
+                intentFilter)
     }
 
     override fun onPause() {
         super.onPause()
-        if (!bound) return
+        if (!isBound) return
+        localBroadcastManager.unregisterReceiver(listener)
         unbindService(sConn)
-        bound = false
-//        stopService(Intent(this, CustromService::class.java))
+        isBound = false
+    }
+
+    fun changeWifiStatus(message: String?) {
+        wifiStatusTextView?.setText(message)
     }
 }
 
-//                startService(Intent(getBaseContext(), CustromService::class.java))

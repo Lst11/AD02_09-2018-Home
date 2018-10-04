@@ -36,7 +36,7 @@ public class Lesson5Activity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson5);
-        networkStatus = (TextView) findViewById(R.id.networkStatus);
+        networkStatus = (TextView) findViewById(R.id.changeWifiStatus);
 
         ClockView clockView = new ClockView(this);
         LinearLayout layout = (LinearLayout) findViewById(R.id.layout);

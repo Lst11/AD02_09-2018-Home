@@ -16,4 +16,10 @@
         <item name="android:textSize">20dp</item>
     </style>
 
+    <style name="text_simple">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
 </resources>
