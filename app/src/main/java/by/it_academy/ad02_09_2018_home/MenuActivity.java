@@ -12,6 +12,7 @@ import by.it_academy.ad02_09_2018_home.hw3.Lesson3Activity;
 import by.it_academy.ad02_09_2018_home.hw4.Lesson4Activity;
 import by.it_academy.ad02_09_2018_home.hw5.Lesson5Activity;
 import by.it_academy.ad02_09_2018_home.hw6.Lesson6Activity;
+import by.it_academy.ad02_09_2018_home.hw7.Lesson7Activity;
 
 public class MenuActivity extends Activity {
     @Override
@@ -24,6 +25,7 @@ public class MenuActivity extends Activity {
         Button button4 = findViewById(R.id.button4);
         Button button5 = findViewById(R.id.button5);
         Button button6 = findViewById(R.id.button6);
+        Button button7 = findViewById(R.id.button7);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,14 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, Lesson6Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, Lesson7Activity.class);
                 startActivity(intent);
             }
         });

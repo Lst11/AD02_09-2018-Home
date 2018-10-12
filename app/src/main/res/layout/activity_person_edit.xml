@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_wood_dark"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:weightSum="15">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:cropToPadding="true"
+            android:padding="20dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_face_white_24dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@color/white_transparent"
+        android:gravity="center"
+        android:hint="Name"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_dark" />
+
+    <EditText
+        android:id="@+id/surnameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@color/white_transparent"
+        android:gravity="center"
+        android:hint="Surname"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_dark" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/detele"
+            style="@style/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_white_transp_selector"
+            android:padding="5dp"
+            android:text="Detele"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/save"
+            style="@style/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_white_transp_selector"
+            android:padding="5dp"
+            android:text="Save"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -50,7 +50,7 @@ public class Lesson3Activity extends Activity {
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true)
                         .circleCropTransform()
-                        .error(R.drawable.error_internet_connection);
+                        .error(R.drawable.ic_launcher);
 
                 Glide.with(getApplicationContext())
                         .load(String.valueOf(editText.getText()))
