@@ -1,10 +1,14 @@
 package by.it_academy.ad02_09_2018_home.hw7
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.widget.*
+import android.support.v4.app.FragmentActivity
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.ProgressBar
 import by.it_academy.ad02_09_2018_home.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -14,7 +18,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 
 
-class PersonEditActivity : Activity() {
+class PersonEditActivity : FragmentActivity() {
 
     private var nameEditText: EditText? = null
     private var surnameEditText: EditText? = null
@@ -24,7 +28,6 @@ class PersonEditActivity : Activity() {
     private var imageView: ImageView? = null
 
     private var position: Int = 0
-    private var isNew: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +36,11 @@ class PersonEditActivity : Activity() {
         getIncomingIntent()
 
         buttonSave?.setOnClickListener {
-            saveData()
+            ExecutorPortraitOrientation().saveData(position, this.baseContext)
         }
 
         buttonDel?.setOnClickListener {
-            removeData()
+            ExecutorPortraitOrientation().removeData(position, this.baseContext)
         }
     }
 
@@ -47,8 +50,6 @@ class PersonEditActivity : Activity() {
             position = getIntent().getIntExtra("position", 0)
             val person: Person? = PersonListSingleton.list[position]
             setData(person?.image, person?.name, person?.surname)
-        } else if (getIntent().hasExtra("isNew")) {
-            changingForCreateNew()
         }
     }
 
@@ -62,6 +63,11 @@ class PersonEditActivity : Activity() {
     }
 
     private fun setData(image_url: String?, name: String?, surname: String?) {
+        buttonSave?.visibility = Button.VISIBLE
+        buttonDel?.visibility = Button.VISIBLE
+        nameEditText?.visibility = EditText.VISIBLE
+        surnameEditText?.visibility = EditText.VISIBLE
+        imageView?.visibility = ImageView.VISIBLE
         nameEditText?.setText(name)
         surnameEditText?.setText(surname)
         progressBar?.visibility = ProgressBar.VISIBLE
@@ -88,28 +94,22 @@ class PersonEditActivity : Activity() {
                 .into(imageView)
     }
 
-    private fun saveData() {
-        if (isNew) {
-            val person = Person("", nameEditText?.getText().toString(), surnameEditText?.getText().toString())
-            PersonListSingleton.list.add(person)
-        } else {
-            PersonListSingleton.list[position].name = nameEditText?.getText().toString()
-            PersonListSingleton.list[position].surname = surnameEditText?.getText().toString()
+
+    inner class ExecutorPortraitOrientation : EditPesonDate {
+
+        override fun saveData(position: Int?, context: Context?) {
+            if (position != null) {
+                PersonListSingleton.list[position!!].name = nameEditText?.text.toString()
+                PersonListSingleton.list[position!!].surname = surnameEditText?.text.toString()
+            }
+            var intent = Intent(context, Lesson7Activity::class.java)
+            startActivity(intent)
         }
-        var intent = Intent(this.baseContext, Lesson7Activity::class.java)
-        startActivity(intent)
-    }
 
-    private fun removeData() {
-        PersonListSingleton.list.removeAt(position)
-        var intent = Intent(this.baseContext, Lesson7Activity::class.java)
-        startActivity(intent)
-    }
-
-    private fun changingForCreateNew() {
-        isNew = getIntent().getBooleanExtra("isNew", false)
-        buttonDel?.visibility = Button.GONE
-        (buttonSave?.layoutParams as LinearLayout.LayoutParams).weight = 2.0F
-        setData("", "", "")
+        override fun removeData(position: Int?, context: Context?) {
+            position?.let { PersonListSingleton.list.removeAt(it) }
+            var intent = Intent(context, Lesson7Activity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -6,13 +6,13 @@
     android:background="@drawable/bg_wood_dark"
     android:orientation="vertical"
     android:padding="30dp"
-    android:weightSum="15">
+    android:weightSum="10">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_weight="5">
 
         <ImageView
             android:id="@+id/image"
@@ -21,6 +21,7 @@
             android:layout_gravity="center"
             android:cropToPadding="true"
             android:padding="20dp"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_face_white_24dp" />
 
         <ProgressBar
@@ -63,39 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_weight="2" />
+        android:layout_weight="3" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <Button
-            android:id="@+id/detele"
-            style="@style/text_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_white_transp_selector"
-            android:padding="5dp"
-            android:text="Delete"
-            android:textStyle="normal" />
-
-        <Button
-            android:id="@+id/save"
-            style="@style/text_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_white_transp_selector"
-            android:padding="5dp"
-            android:text="Save"
-            android:textStyle="normal" />
-
-    </LinearLayout>
 
 </LinearLayout>
+

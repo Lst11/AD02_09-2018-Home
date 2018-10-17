@@ -40,6 +40,10 @@
         <activity android:name=".hw7.Lesson7Activity" />
 
         <activity
+            android:name=".hw7.PersonAddActivity"
+            android:noHistory="true" />
+
+        <activity
             android:name=".hw7.PersonEditActivity"
             android:noHistory="true" />
 

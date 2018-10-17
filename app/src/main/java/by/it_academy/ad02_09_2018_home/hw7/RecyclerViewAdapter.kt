@@ -3,6 +3,7 @@ package by.it_academy.ad02_09_2018_home.hw7
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,15 +23,26 @@ import com.bumptech.glide.request.target.Target
 
 class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.Holder>() {
     private var context: Context? = null
+    private var isLand: Boolean = false
+    private var fragment: PersonItemFragment? = null
+
     private var listData: List<Person> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    constructor(context: Context?) : this() {
+    constructor(context: Context?, isLand: Boolean) : this() {
+        this.isLand = isLand
         this.listData = PersonListSingleton.list
         this.context = context
+    }
+
+    constructor(context: Context?, isLand: Boolean, fragment: Fragment) : this() {
+        this.isLand = isLand
+        this.listData = PersonListSingleton.list
+        this.context = context
+        this.fragment = fragment as PersonItemFragment
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): Holder {
@@ -73,11 +85,34 @@ class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.Holder>()
         holder.nameTextView.setText(person?.name ?: "")
         holder.surnameTextView.setText(person?.surname ?: "")
         holder.parentLayout.setOnClickListener {
-            onClick(position)
+            if (isLand) {
+                onClickLand(position)
+            } else onClickPortsrait(position)
         }
     }
 
-    private fun onClick(position: Int) {
+
+    private fun onClickLand(position: Int) {
+        var number: Int = 0
+        PersonListSingleton.list.forEachIndexed { index, person ->
+            if (person.equals(this.listData[position])) {
+                number = index
+            }
+        }
+        if (fragment == null) Log.e("AAA", "fragment = null")
+        else Log.e("AAA", "fragment isn`t null")
+
+        Log.e("AAA", "put extra $number; orientation: land")
+
+
+        fragment?.setData(number)
+//        val intent: Intent = Intent(context, PersonEditActivity::class.java)
+//        intent.putExtra("position", number)
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context?.startActivity(intent)
+    }
+
+    private fun onClickPortsrait(position: Int) {
         var number: Int = 0
         PersonListSingleton.list.forEachIndexed { index, person ->
             if (person.equals(this.listData[position])) {
